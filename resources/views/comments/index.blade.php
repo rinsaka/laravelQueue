@@ -10,6 +10,12 @@
     コメント一覧
   </h1>
 
+  <p>
+    <a href="{{ action('CommentsController@create') }}">
+      コメントを一気に登録する
+    </a>
+  </p>
+
   {{ $comments->links() }}
   <p>
     登録件数： {{ $cnt }}
