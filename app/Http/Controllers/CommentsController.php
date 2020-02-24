@@ -10,7 +10,10 @@ class CommentsController extends Controller
   public function index()
   {
     $comments = Comment::orderBy('created_at', 'DESC')
-                          ->get();
-    dd($comments);
+                          ->paginate(10);
+    $cnt = Comment::count();
+    return view('comments.index')
+          ->with('cnt', $cnt)
+          ->with('comments', $comments);
   }
 }
